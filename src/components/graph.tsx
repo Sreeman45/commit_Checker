@@ -19,7 +19,7 @@ interface Commit  {
 
 
 const CommitChart:React.FC<Commit>=({commitsArray}) =>{
-  
+
   const data = [...commitsArray].sort(
     (a, b) =>
       new Date(a.date.split("-").reverse().join("-")).getTime() -
