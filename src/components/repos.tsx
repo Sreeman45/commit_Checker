@@ -38,7 +38,7 @@ const ReposChart: React.FC<Props> = ({ trigger }) => {
       setRepos(data);
       setUser(data[0].owner.login);
       setProfileImg(data[0].owner.avatar_url);
-      
+      setError('')
       const noofCommitsperday: Record<string, number> = {};
       for (let repo of data) {
         const commitsRes = await fetchWithToken(
@@ -58,7 +58,7 @@ const ReposChart: React.FC<Props> = ({ trigger }) => {
         .sort((a, b) => a.date.localeCompare(b.date));
       setCommits(commitsArray);
       console.log(commitsArray)
-      setError('')
+      
     } catch (err) {
       console.log("errorr" + err);
       setError('username does not exist')
